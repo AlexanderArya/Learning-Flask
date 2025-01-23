@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Training</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <input type="text" name="name" id="name">
+        <br>
+        <button id="btn-submit" onclick="submitData()">Submit</button>
+
+        <script>
+            console.log("A")
+
+            setInterval(function(){
+                console.log("B")
+            }, 2000);
+
+            console.log("C")
+
+
+            function submitData(){
+                // TODO: LETAKKAN LOADING START
+
+                // TODO: ambil inputan nama
+                let elementInput = document.getElementById("name");
+                let namaValue = elementInput.value;
+
+                // TODO: kasi ke python lewat ajax
+                $.ajax({
+                    url     : '/send-data',
+                    method  : 'POST',
+                    data    : { name: namaValue },
+                    success : function(response){
+                        // TODO: LETAKKAN LOADING SELESAI
+                    }
+                }).then(function(){
+                    // TODO: LETAKKAN LOADING SELESAI
+                })
+
+                // TODO: LETAKKAN LOADING SELESAI
+            }
+        </script>
+
+
+
+
+
+
+
+        <script>
+            let params = {
+                name: 'Alpha',
+                umur: 23
+            }
+
+            // $.ajax({
+            //     url      : '/send-data',
+            //     method   : 'POST',
+            //     data     : params,
+            //     success  : function(response){
+            //         if(response.status){
+            //             alert("Insert data berhasil");
+            //         }else{
+            //             alert("Terjadi kesalahan")
+            //         }
+                    // let elementHeading = document.createElement("h1")
+                    // elementHeading.innerText = `Hai ${response[0].name}`;
+                    // // <h1>Hai Mario</h1>
+
+                    // document.getElementById('app').appendChild(elementHeading);
+
+                // }
+            // })
+        </script>
+    </body>
+</html>

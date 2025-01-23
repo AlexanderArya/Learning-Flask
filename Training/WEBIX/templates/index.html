@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.webix.com/edge/webix.css"
+      type="text/css"
+    />
+    <script
+      src="https://cdn.webix.com/edge/webix.js"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      var tampilan = webix.ui({
+        id: "myApp",
+        rows: [
+          {
+            view: "form",
+            id: "myform",
+            elements: [
+              { view: "text", id: "name", label: "Nama", name: "name" },
+              { view: "text", id: "umur", label: "Umur", name: "umur" },
+              { view: "text", id: "alamat", label: "Alamat", name: "alamat" },
+              {
+                view: "button",
+                id: "btn",
+                label: "Add",
+                CSS: "webix_primary",
+              },
+            ],
+          },
+          {
+            view: "datatable",
+            id: "mygrid",
+            columns: [
+              { id: "id", header: "", width: 50 },
+              { id: "name", header: "Nama", width: 200 },
+              { id: "umur", header: "Umur", width: 80 },
+              { id: "alamat", header: "Alamat", width: 100 },
+            ],
+            data: [],
+            on: {
+              onItemDblClick: function (param) {
+                console.log(param);
+                $$("myform").setValues($$("mygrid").getItem(param.row));
+              },
+            },
+          },
+        ],
+      });
+
+      webix.ready(function () {
+        var lastId = 0;
+        // Button jika di click maka akan menjalankan function yang dimana function berisi isi dari form yang disimpan di dalam formValues
+        // dan di bawah akan di timpa dengan id yang sudah di imputkan sendiri oleh
+        $$("btn").attachEvent("onItemClick", function () {
+          var formValues = $$("myform").getValues();
+          console.log(formValues.id);
+            formValues.id = ++lastId; // Menambahkan ID yang unik dan berurutan
+          //   console.log(formValues.id);
+          $$("mygrid").add(formValues);
+        });
+      });
+    </script>
+  </body>
+</html>

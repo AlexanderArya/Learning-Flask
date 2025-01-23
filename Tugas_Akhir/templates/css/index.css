@@ -1,0 +1,41 @@
+html {
+    font-family: "Poppins";
+}
+
+#form_div {
+    /* border: 1px solid rgb(212, 212, 212); */
+    border-radius: 5px;
+
+    /* background-color: rgb(238, 236, 232); */
+    text-align: center;
+}
+
+body {
+    background-image: url(../asset/background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#form_div h2 {
+    font-weight: 450;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.webix_view.webix_form {
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.webix_el_box button.webix_button {
+    background-color: red;
+    color: white;
+}

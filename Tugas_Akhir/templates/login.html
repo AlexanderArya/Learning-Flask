@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.webix.com/edge/webix.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap"
+    />
+
+    <script src="//cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+  </head>
+  <style>
+    /* Target the login label element using a more specific selector */
+    /* Target the login label element using its class name */
+    .login-label {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    /* Alternatively, use a descendant selector for better encapsulation */
+    .webix_view > .webix_control > .login-label {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div
+      id="form_div"
+      style="font-family: 'Courier New', Courier, monospace"
+    ></div>
+    <div id="error" style="color: red"></div>
+
+    <script type="text/javascript">
+      var formLogin = [
+        {
+          view: "label",
+          label: "LOGIN",
+          align: "center",
+        },
+        {
+          cols: [
+            { width: 100 },
+            {
+              view: "label",
+              label: "Username",
+              css: "login-label",
+              align: "center",
+            },
+            { width: 100 },
+          ],
+        },
+        {
+          view: "text",
+          name: "username",
+          placeholder: "Username",
+        },
+        {
+          cols: [
+            { width: 100 },
+            {
+              view: "label",
+              label: "Password",
+              css: "login-label",
+              align: "center",
+            },
+            { width: 100 },
+          ],
+        },
+        {
+          view: "text",
+          type: "password",
+          name: "password",
+          placeholder: "Password",
+        },
+        {
+          view: "button",
+          value: "Submit",
+          click: function () {
+            var formValues = this.getFormView().getValues();
+            webix
+              .ajax()
+              .post("/login", formValues)
+              .then(function (data) {
+                window.location.href = "/dashboard";
+              })
+              .catch(function (error) {
+                document.getElementById("error").innerText =
+                  "Username atau password salah";
+              });
+          },
+        },
+        {
+          cols: [
+            {
+              view: "button",
+              value: "Register",
+              click: function () {
+                // Add your register functionality here
+                alert("Register button clicked");
+              },
+            },
+            {
+              view: "button",
+              value: "Scan",
+              click: function () {
+                // Add your scan functionality here
+                alert("Scan button clicked");
+              },
+            },
+          ],
+        },
+      ];
+
+      webix.ui({
+        view: "form",
+        scroll: false,
+        container: "form_div",
+        width: 500,
+        padding: 30,
+        elements: formLogin,
+        elementsConfig: { labelPosition: "top" },
+      });
+    </script>
+  </body>
+</html>

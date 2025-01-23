@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Tabel Page{% endblock %} {% block
+content %}
+<div>
+  <h1>Data Tabel</h1>
+  <!-- Tambahkan konten tabel di sini -->
+  <div id="tabelContainer"></div>
+</div>
+
+<script>
+  // Contoh membuat tabel dengan Webix
+  webix.ready(function () {
+    webix.ui({
+      view: "datatable",
+      container: "tabelContainer",
+      columns: [
+        { id: "id", header: "ID" },
+        { id: "name", header: "Nama" },
+        { id: "age", header: "Umur" },
+      ],
+      data: [
+        { id: 1, name: "John", age: 30 },
+        { id: 2, name: "Jane", age: 25 },
+      ],
+    });
+  });
+</script>
+{% endblock %}

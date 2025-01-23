@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Data</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="mt-5 mb-4">Update Data</h2>
+      <form action="/update" method="POST">
+        <input type="hidden" name="id_entry" value="{{ data_entry.id }}" />
+        <div class="form-group">
+          <label for="new_id_user">New User ID:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="new_id_user"
+            name="new_id_user"
+            value="{{ data_entry.id_user }}"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="new_username">New Username:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="new_username"
+            name="new_username"
+            value="{{ data_entry.username }}"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="new_nominal">New Nominal:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="new_nominal"
+            name="new_nominal"
+            value="{{ data_entry.nominal }}"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

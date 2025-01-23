@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulir Update Data</title>
+  </head>
+  <body>
+    <h1>Formulir Update Data</h1>
+
+    <form action="proses_update.php" method="post">
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" name="nama" value="Budi" required />
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value="budi@gmail.com"
+        required
+      />
+
+      <label for="komentar">Komentar:</label>
+      <textarea id="komentar" name="komentar" rows="5" required>
+Lorem ipsum dolor sit amet...</textarea
+      >
+
+      <button type="submit">Ubah Data</button>
+    </form>
+  </body>
+</html>

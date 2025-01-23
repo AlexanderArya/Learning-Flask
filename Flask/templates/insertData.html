@@ -1,0 +1,54 @@
+{% extends "main-layout.html" %} {% block content %}
+
+<div class="container mt-5">
+  <h1>Update Data</h1>
+  <br />
+  <form method="post">
+    <!-- ID User -->
+    <div class="mb-3">
+      <label for="id_user" class="form-label">ID USER</label>
+      <input
+        type="number"
+        class="form-control"
+        id="id_user"
+        placeholder="ID USER"
+        name="id_user"
+        required
+      />
+      <div id="emailHelp" class="form-text"></div>
+    </div>
+
+    <!-- Username -->
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        aria-describedby="emailHelp"
+        placeholder="Username"
+        name="username"
+        required
+      />
+      <div id="emailHelp" class="form-text"></div>
+    </div>
+
+    <!-- Nominal -->
+    <div class="mb-3">
+      <label for="nominal" class="form-label">Nominal</label>
+      <input
+        type="number"
+        class="form-control"
+        id="nominal"
+        aria-describedby="emailHelp"
+        placeholder="Nominal"
+        name="nominal"
+        required
+      />
+      <div id="emailHelp" class="form-text"></div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}
